@@ -7,9 +7,10 @@ class TopScorers extends React.Component {
     super(props);
     this.state = {
       scorersList: [],
+      search: '',
     }
     this.getTopScorers = this.getTopScorers.bind(this);
-    this.handlerRemove = this.handlerRemove.bind(this)
+    this.handlerRemove = this.handlerRemove.bind(this);
   }
 
   componentDidMount() {
@@ -28,11 +29,12 @@ class TopScorers extends React.Component {
     let listOfScorers = this.state.scorersList;
     let newScorerList = listOfScorers.splice(index, 1);
     this.setState({ scorersList: listOfScorers })
-  };
+  }
 
   render() {
     return (
       <div className="main">
+        <br />
         <Scorer
           delete={this.handlerRemove}
           scorers={this.state.scorersList}
